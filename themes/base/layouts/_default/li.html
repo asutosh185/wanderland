@@ -1,0 +1,17 @@
+<div class="col-md-6  wow flipInX">
+    <div class="blog-li">
+        <div class="row">
+            <div class="col-md-3 ">
+                <div class="image">
+                    <a href="{{ .URL }}"><img src="{{ .Site.BaseURL}}{{ .Params.banner }}"></a>
+                </div>
+            </div>
+            <div class="col-md-9 ">
+                <p class="blog-date">{{ .Date.Format "Jan 2 , 2006" }}</p>
+                <h4><a href="{{ .URL }}" class="text-dark">{{ .Title }}
+          <i class="fa fa-angle-right float-right"></i>
+        </a></h4>
+            </div>
+        </div>
+    </div>
+</div>

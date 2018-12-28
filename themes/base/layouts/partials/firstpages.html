@@ -1,0 +1,48 @@
+<section class="fdb-block bg-gray-10"  >
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-6 mb-4 mb-md-0  wow slideInLeft">
+          <img class="img-fluid" src="/images/firsthome.png " alt=" " width="454" height="500">
+        </div>
+        <div class="col-12 col-md-6 col-lg-5 ml-md-auto text-left  wow slideInRight" id="download">
+          <h1>Experience Book’s First Pages for Free!</h1>
+                <p class="text-dark ">Susan and Rebecca have infused their experience and wisdom into this well structured, easy-to-follow book and this can be witnessed even while examining just few pages.</p>
+
+                 <div class="row video-review-quote">
+                  <div class="col-sm-4 col-md-2">
+                    <img class="img-fluid" src="/images/press-quote-44x39.png" />
+                  </div>
+                  <div class="col-sm-8 col-md-8">
+                   <h4 >Enter your e-mail and get the 1st Chapter for Free</h4>
+                  </div>
+                 </div>
+                 <form name="submit-to-google-sheet">
+                 <div class="input-group mt-4">
+                   
+              <input name="email" type="email" id="email" type="text" class="form-control" placeholder="Your E-Mail..." required>
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Submit</button>
+              </span>
+              
+            </div>
+            </form>
+           <p ><em>Read the whole first chapter of this book for free, its instantly downloadable!</em></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwgb3ssqS3xSUKTzoLISQTE4c4BQHl0Jr9JxwkPjyXjg_lkOJM/exec'
+  const form = document.forms['submit-to-google-sheet']
+  
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+     swal({ title: "Thanks for Signing up", imageUrl: '/images/success.png', text: "We'll keep you updated on the latest happenings at wonderland! </br> Download First Pages <u><a href='/Sample_Chapter.pdf' style='color:#4285f4' download>Here<a></u>", html: true });
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>

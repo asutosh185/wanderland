@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ partial "common/meta" . }}
+    <title>{{ .Site.Title }} | {{ .Title }}</title>
+    {{ partial "common/styles" }}
+</head>
+
+<body>
+    {{ partial "header" }}
+    <main>
+        <div class="fdb-block">
+        <div class="container blog-single">
+            <div class="row">
+                <div class=" product-wrapper">
+                    <!-- <div class="col-2 social-section social-icons ">
+                        {{ partial "social" . }}
+                    </div> -->
+                    <div class="col-9 mx-auto">
+                        <div class="blogsingle-image">
+                          {{if isset .Params "featured_image" }}
+      <img src="{{ index .Params "featured_image" }}" class="img-fluid" >
+      {{ end }}
+                            <div class="mask">
+                            </div>
+                        </div>
+                        <div class="news-data">
+                            <p><strong><i class="fa fa-clock-o"></i> Posted on {{ .Date.Format "Jan 2 , 2006" }}</strong></p>
+
+                            <h2 class="h2-responsive">{{ .Title }}</h2>
+                            <hr> {{ .Content }}   {{ partial "details" . }}  {{ partial "social" . }} {{ partial "disqus" . }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+    {{ partial "footer" }}
+    {{ partial "common/scripts" }}
+    {{ partial "ga" . }}
+</body>
+</html>

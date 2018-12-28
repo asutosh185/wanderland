@@ -1,0 +1,10 @@
+baseURL = "https://www.leadershipinwonderland.com"
+languageCode = "en-us"
+title = "Leadership In Wonderland"
+theme = "base"
+
+
+[params]
+ga_id = "UA-85906030-1"
+description = "Wakeup the confidence deep inside you, tune up your goals for next higher level, nothing can inhibit you from tuning yourself into a leader..!!"
+banner = "/images/rabbit.svg"

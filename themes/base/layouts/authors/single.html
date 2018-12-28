@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{ partial "common/meta" . }}
+    <title>{{ .Site.Title }} | {{ .Title }}</title>
+    {{ partial "common/styles" }}
+  </head>
+  <style>
+  
+  </style>
+
+  <body>
+    {{ partial "header" }}
+    
+    {{ partial "authorssingle"}}
+
+    {{ partial "firstpagesfooter" }}
+    {{ partial "footer" }}
+    {{ partial "common/scripts" }}
+   {{ partial "ga" . }}
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{ partial "common/meta" . }}
+    <title>{{ .Site.Title }} | posts </title>
+    {{ partial "common/styles" }}
+  </head>
+  <body>
+      {{ partial "header" }}
+       <div class="container">
+    <section class="fdb-block blog-list">
+    <h1 class="text-center  wow zoomIn">Our Recent Blogs</h1>
+
+    <div class="expanded row">
+          {{ range (.Paginator 10).Pages }}
+            {{ .Render "li" }}
+                {{ end }}
+  </div>
+   <nav  class="float-right blog-pagination mt-5" aria-label="Page navigation example ">
+  {{ $pag := $.Paginator }}
+{{ if gt $pag.TotalPages 1 }}
+<ul class="pagination">
+    
+    <li class="page-item"
+    {{ if not $pag.HasPrev }}class="disabled"{{ end }}>
+    <a  class="page-link" href="{{ if $pag.HasPrev }}{{ $pag.Prev.URL }}{{ end }}" aria-label="Previous"><span aria-hidden="true">Previous</span></a>
+    </li>
+    {{ $.Scratch.Set "__paginator.ellipsed" false }}
+    {{ range $pag.Pagers }}
+    {{ $right := sub .TotalPages .PageNumber }}
+    {{ $showNumber := or (le .PageNumber 3) (eq $right 0) }}
+    {{ $showNumber := or $showNumber (and (gt .PageNumber (sub $pag.PageNumber 2)) (lt .PageNumber (add $pag.PageNumber 2)))  }}
+    {{ if $showNumber }} 
+        {{ $.Scratch.Set "__paginator.ellipsed" false }}
+        {{ $.Scratch.Set "__paginator.shouldEllipse" false }}
+    {{ else }}
+        {{ $.Scratch.Set "__paginator.shouldEllipse" (not ($.Scratch.Get "__paginator.ellipsed") ) }}
+        {{ $.Scratch.Set "__paginator.ellipsed" true }}
+    {{ end }}
+    {{ if $showNumber }}
+    <li 
+    {{ if eq . $pag }}class="page-item active"{{ end }}><a  class="page-link " href="{{ .URL }}">{{ .PageNumber }}</a></li>
+
+    {{ else if ($.Scratch.Get "__paginator.shouldEllipse") }}
+    
+    <li class="disabled"><span aria-hidden="true">&hellip;</span></li>
+    {{ end }}
+    {{ end }}
+    <li
+    {{ if not $pag.HasNext }}class="disabled"{{ end }}>
+    <a  class="page-link" href="{{ if $pag.HasNext }}{{ $pag.Next.URL }}{{ end }}" aria-label="Next"><span aria-hidden="true">Next</span></a>
+    </li>
+   
+</ul>
+{{ end }}
+</nav> 
+     </section>
+   </div>
+   {{ partial "firstpagesfooter" }}
+
+    {{ partial "footer" }}
+    {{ partial "common/scripts" }}
+    
+  </body>
+</html>

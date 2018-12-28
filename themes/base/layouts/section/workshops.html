@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{ partial "common/meta" . }}
+    <title>{{ .Site.Title }} | Workshops</title>
+    {{ partial "common/styles" }}
+  </head>
+
+  <body>
+    {{ partial "header" }}
+    <div class="fdb-block ">
+      <div class="container">
+    <h1 class="workshops-title text-center wow fadeInDown">Encourage Leadership skills in your organisation</h1>
+    <div class="wow fadeInUp">
+    <p class="text-dark workshops-text text-center">
+      Are you looking to hone leadership skills of your employees?
+      </br>
+     You have come to the right place!
+      </p><p class="workshops-text text-center">
+      Our tailor made workshops are unique and fun. Taking the book as the reference, we have crafted three very engaging workshops for young leaders so that they feel involved, empowered and ready to take on bigger challenges of the real world. What are you waiting for? Create leaders, build and enhance a stronger sense of community and collaboration in your teams with our workshops.</br> Reach out to us at <a class="text-spacing" href="mailto:Leadership.in.Wonderland@gmail.com?Subject=Hello" target="_top">Leadership.in.Wonderland@gmail.com</a> to see how we can positively impact your organisation.
+    </p>
+    </div>
+    <div class="row">
+     
+        {{ range .Data.Pages }}
+        {{ .Render "li" }}
+        {{ end }}
+     
+    </div>
+  </div>
+  </div>
+  {{ partial "firstpagesfooter" }}
+    {{ partial "footer" }}
+      {{ partial "common/scripts" }}
+    {{ partial "ga" . }}
+  </body>
+
+</html>

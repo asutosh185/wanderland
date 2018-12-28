@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{ partial "common/meta" . }}
+    <title>{{ .Site.Title }} | {{ .Title }}</title>
+    {{ partial "common/styles" }}
+  </head>
+  <style>
+  .carousel-indicators li::before {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    content: "";
+    /*background-image: url("http://placehold.it/50x50") !important;*/
+
+}
+.carousel-indicators .alice::before {
+    
+   
+   background-image: url(/images/characters/alice.jpg) !important;
+
+}
+.carousel-indicators li{
+	width:50px;
+}
+  </style>
+
+  <body>
+    {{ partial "header" }}
+    {{ partial "characters" }}
+	{{ partial "firstpagesfooter" }}
+     {{ partial "footer" }}
+    {{ partial "common/scripts" }}
+   {{ partial "ga" . }}
+  </body>
+</html>

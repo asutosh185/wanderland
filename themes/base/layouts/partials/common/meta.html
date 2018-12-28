@@ -1,0 +1,25 @@
+<meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" 		   content="width=device-width, initial-scale=1">
+    <meta name="generator"                 content="Gurujada">
+    <meta name="author"                    content="Susan Goldberg">
+    <meta name="author"                    content="Rebecca Lacy">
+    <meta name="description"               content="{{ if .Description }} {{ .Description }} {{else}} {{ .Site.Params.description }} {{ end }}"/>
+
+
+    <meta property="og:url"                 content="https://www.leadershipinwonderland.com" />
+    <meta property="og:title"               content="{{ if eq .Title .Site.Title }} {{ .Site.Title }} {{else}} {{ .Title }} | {{ .Site.Title }} {{ end }}" />
+    <meta property="og:description"         content="{{ if .Description }} {{ .Description }} {{else}} {{ .Site.Params.description }} {{ end }}" />
+
+    <meta property="og:site_name"           content="Leadership in wonderland" />
+    <meta property="og:image"               content="{{ if .Params.banner }} https://leadershipinwonderland.com{{ .Params.banner }} {{ else }} https://leadershipinwonderland.com{{ .Site.Params.banner }} {{ end }}" />
+    <meta property="og:type"                content="website" />
+    <meta property="og:locale"              content="en_US" />
+
+   <meta name="twitter:card"               content="summary">
+    <meta name="twitter:title"             content="{{ if eq .Title .Site.Title }} {{ .Site.Title }} {{else}} {{ .Title }} | {{ .Site.Title }} {{ end }}">
+    <meta name="twitter:description"       content="{{ if .Description }} {{ .Description }} {{else}} {{ .Site.Params.description }} {{ end }}">
+    <meta name="twitter:image"             content="{{ if .Params.banner }} https://leadershipinwonderland.com{{ .Params.banner }} {{ else }} https://leadershipinwonderland.com{{ .Site.Params.banner }} {{ end }}">
+
+<link rel="icon" href="/images/favicon.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/images/favicon.png" sizes="62x62" type="image/png">

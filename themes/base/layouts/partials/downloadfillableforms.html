@@ -1,0 +1,36 @@
+<section class="fdb-block bg-dark fillableform">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 text-center">
+          <h3>Get instant access to our FREE worksheets!</h3>
+         
+          
+          <form name="submit-forms-to-google-sheet">
+                 <div class="input-group mt-4">
+                   
+              <input name="email" type="email" id="email" class="form-control" placeholder="Your E-Mail..." required>
+              <span class="input-group-btn">
+                <button class="btn  btn-red btn-rounded" type="submit">Sign up now</button>
+              </span>
+              
+            </div>
+            </form>
+          <p><em>You'll get an instantly downloadable PDF</em></p>
+         
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  const fillableformscriptURL = 'https://script.google.com/macros/s/AKfycbxeevcQpwxSZvgjRUO70OfvmLb3LtpdHALB-42ckHVfR8_zgdM/exec'
+  const fillableform = document.forms['submit-forms-to-google-sheet']
+
+  fillableform.addEventListener('submit', e => {
+    e.preventDefault()
+    swal({ title: "Thanks for downloading the free worksheet.", imageUrl: '/images/success.png', text: "Enrich your learning experience by working these simple questions. What would your answers be?. Download <u><a href='/LIW_fillable_forms.pdf' style='color:#4285f4' download>Here<a></u>", html: true });
+    fetch(fillableformscriptURL, { method: 'POST', body: new FormData(fillableform)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
